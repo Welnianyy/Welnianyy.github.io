@@ -5,25 +5,25 @@ const licznikWartosc = document.getElementById('licznik-wartosc');
 
 // === CounterAPI v2 funkcje ===
 function pobierzLicznik() {
-    fetch('https://api.counterapi.dev/v2/welniany/linki')
+    fetch('https://api.counterapi.dev/v1/welniany/linki/')
         .then(res => res.json())
         .then(data => {
-            const liczba = data.data.up_count ?? 0;
+            const liczba = data.count ?? 0;
             licznikWartosc.textContent = liczba;
         });
 }
 
 function inkrementujLicznik() {
-    fetch('https://api.counterapi.dev/v2/welniany/linki/up', { method: 'POST' })
+    fetch('https://api.counterapi.dev/v1/welniany/linki/up', { method: 'GET' })
         .then(res => res.json())
         .then(() => {
-            pobierzLicznik(); // odświeżaj licznik po zwiększeniu
+            pobierzLicznik(); // odśwież licznik po dodaniu
         });
 }
 
 // Pobierz licznik na starcie
 pobierzLicznik();
-setInterval(pobierzLicznik, 7000);
+setInterval(pobierzLicznik, 10000);
 
 let clickable = true;
 
