@@ -32,6 +32,31 @@ main {
 }
 
 
+.lapka-licznik {
+    position: absolute;
+    top: 60%;      /* dostosuj jak trzeba, by było obok łapki */
+    right: 80px;  /* odsuń od prawej, popraw jak trzeba */
+    display: flex;
+    align-items: center;
+    border: 2px solid #e0e0e000;
+    border-radius: 999px;
+    background: #ffffff00;
+    padding: 4px 14px;
+    font-size: 1.18em;
+    color: #ffffff;
+    min-width: 48px;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(255, 255, 255, 0);
+    z-index: 81;
+    user-select: none;
+    transition: border-color 0.2s;
+}
+.licznik-ikona {
+    font-size: 1.25em;
+    margin-right: 6px;
+    margin-left: 2px;
+}
+
 /* === PARALLAXA TŁA === */
 .paralaksa-bg {
    	position: absolute;
@@ -276,7 +301,7 @@ header {
 }
 .obrazek-lapka {
     position: absolute;      
-    top: 50%;                
+    top: 30%;                
     right: 20px;             
     transform: translate(-150%, -40%);  
     width: 60px;

@@ -1,6 +1,29 @@
 const img = document.getElementById('obrazek-animacja-img');
 const lapka = document.querySelector('.obrazek-lapka');
 const dzwiek = new Audio('spada.mp3');
+const licznikWartosc = document.getElementById('licznik-wartosc');
+
+// === CounterAPI v2 funkcje ===
+function pobierzLicznik() {
+    fetch('https://api.counterapi.dev/v2/welniany/linki')
+        .then(res => res.json())
+        .then(data => {
+            const liczba = data.data.up_count ?? 0;
+            licznikWartosc.textContent = liczba;
+        });
+}
+
+function inkrementujLicznik() {
+    fetch('https://api.counterapi.dev/v2/welniany/linki/up', { method: 'POST' })
+        .then(res => res.json())
+        .then(() => {
+            pobierzLicznik(); // odświeżaj licznik po zwiększeniu
+        });
+}
+
+// Pobierz licznik na starcie
+pobierzLicznik();
+setInterval(pobierzLicznik, 7000);
 
 let clickable = true;
 
@@ -15,9 +38,13 @@ img.addEventListener('click', function () {
 
     setTimeout(() => {
         img.classList.add('spada');
-        lapka.classList.add('spada'); // <-- FADE OUT ŁAPKI!
+        lapka.classList.add('spada');
         dzwiek.currentTime = 0;
         dzwiek.play();
+
+        // INKREMENTUJ licznik po kliknięciu!
+        inkrementujLicznik();
+
     }, 1000);
 
     img.addEventListener('animationend', function handler() {
@@ -27,8 +54,8 @@ img.addEventListener('click', function () {
 
         // Po animacji łapka wraca
         setTimeout(() => {
-            lapka.classList.remove('spada'); // FADE-IN ŁAPKI
-        }, 10000); // Tak samo jak pojawia się obrazek
+            lapka.classList.remove('spada');
+        }, 10000);
 
         setTimeout(() => {
             img.src = "obrazek.png";
