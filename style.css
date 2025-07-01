@@ -275,13 +275,13 @@ header {
     opacity: 0;
 }
 .obrazek-lapka {
-    position: absolute;      /* pozycja absolutna względem headera */
-    top: 50%;                /* środek headera w pionie, możesz dać np. 32px, jeśli linia jest niżej */
-    right: 20px;             /* przy prawej krawędzi headera */
-    transform: translate(-150%, -40%);  /* wyśrodkowanie obrazka w pionie */
+    position: absolute;      
+    top: 50%;                
+    right: 20px;             
+    transform: translate(-150%, -40%);  
     width: 60px;
     height: 60px;
-    z-index: 80;             /* wyżej niż tło, niżej niż inne rzeczy, jeśli trzeba */
+    z-index: 80;            
     display: flex;
     align-items: center;
     justify-content: center;
@@ -491,7 +491,7 @@ footer {
         gap: 1em;
     }
     .obrazek-animacja {
-        display: none; /* ukryj dekorację na małym ekranie */
+        display: none;
     }
 	.obrazek-lapka{
 		display: none;
