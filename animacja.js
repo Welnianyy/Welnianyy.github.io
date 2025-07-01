@@ -23,7 +23,7 @@ function inkrementujLicznik() {
 
 // Pobierz licznik na starcie
 pobierzLicznik();
-setInterval(pobierzLicznik, 10000);
+setInterval(pobierzLicznik, 4000);
 
 let clickable = true;
 
