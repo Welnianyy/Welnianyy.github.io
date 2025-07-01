@@ -10,10 +10,10 @@ document.querySelectorAll('.sub-btn').forEach(btn => {
     });
 });
 
-// Kontakt modal (zostaw jak miałeś, ale możesz połączyć z powyższym)
+// Kontakt modal
 document.querySelector('.guziki button:last-child').addEventListener('click', function() {
     document.getElementById('kontakt-modal').classList.add('aktywny');
-    // this.blur(); // niepotrzebne, bo globalny kod już to robi
+    // this.blur(); //globalny kod już to robi
 });
 document.querySelector('.zamknij-kontakt').addEventListener('click', function() {
     document.getElementById('kontakt-modal').classList.remove('aktywny');
