@@ -1,0 +1,516 @@
+/* === IMPORT CZCIONKI === */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+/* === GLOBALNE USTAWIENIA STRONY === */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', Arial, sans-serif;
+    background: rgba(211, 205, 220, 0.78);
+    color: #e0e0e0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+	flex:1;
+	overflow-x: hidden;
+	/* user-select: none; */
+}
+
+main {
+	flex:1
+}
+
+
+@keyframes spada-w-dol {
+    0%   { transform: translateY(0) rotate(0deg); opacity: 1; }
+    70%  { opacity: 1; }
+    100% { transform: translateY(120vh) rotate(35deg); opacity: 0; }
+}
+
+.obrazek-animacja img.spada {
+    animation: spada-w-dol 1.2s cubic-bezier(.33,1.1,.68,1.1) forwards !important;
+}
+
+
+/* === PARALLAXA TŁA === */
+.paralaksa-bg {
+   	position: absolute;
+    top: 0; left: 0; right: 0;
+    width: 100vw;
+    height: 50vh;
+    background: url('tlo.png') center center / 120% no-repeat;
+    z-index: -1;
+    transition: background-position 0.1s;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.hero-paralaksa {
+    position: relative;
+    width: 100vw;
+    height: 50vh;
+    min-height: 380px;   /* Minimum na mniejszych ekranach */
+    overflow: hidden;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.okno-powitalne {
+    /* Szerokość i marginesy, by zawsze mieściło się w hero */
+    background: rgba(20,20,20,0.38);
+    backdrop-filter: blur(6px);
+    border-radius: 20px;
+    padding: 2em 2.8em;
+    max-width: 700px;
+    width: 150vw;
+    margin: 0 auto;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 8px 36px rgba(0,0,0,0.22);
+	transition: background-position 0.1s;
+}
+
+.tekst-glowny-blok {
+	display: flex;
+    gap: 1.8em;
+    max-width: 1280px;
+    margin: 2em auto;
+    align-items: stretch; /* kwadraty tej samej wysokości */
+}
+
+
+.tekst-glowny {
+    font-size: 1.3em;
+	color: #161616;
+}
+
+.blok-wiersz {
+    display: flex;
+    gap: 1.8em;
+    max-width: 1280px;
+    margin: 2em auto;
+    align-items: stretch; /* kwadraty tej samej wysokości */
+}
+
+
+
+.blok-tekst {
+	color: #161616;
+    background: #edececad;
+	backdrop-filter: blur(4px);
+    border-radius: 16px;
+    padding: 1.2em 2em;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.287);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.blok-tekst img {
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.287);
+}
+
+.blok-tekst-boczny {
+	color: #161616;
+    flex: 1 1 0;
+    background: #edececad;
+    backdrop-filter: blur(4px);
+    padding: 2em;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.287);
+    min-width: 220px;
+    max-width: 360px;
+}
+
+
+.blok-tekst {
+    flex: 3 1 0;
+}
+
+
+/* === HEADER === */
+header-tlo {
+    background: rgba(99, 25, 210, 0.78);
+    backdrop-filter: blur(20px);
+    color: #fff;
+    display: flex;
+	flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em 2em;
+	gap: 1em;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+header {
+	position: relative;
+    background: rgba(99, 25, 210, 0.78);
+    backdrop-filter: blur(20px);
+    color: #fff;
+    display: flex;
+	flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em 2em;
+	gap: 1em;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* === LOGO === */
+.logo span {
+    background: linear-gradient(90deg, #fff 20%, #fff 80%);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    font-weight: 900;
+    font-size: 2.5em;
+    letter-spacing: 3px;
+    text-shadow: 0 4px 12px rgba(0,0,0,0.21);
+}
+
+/* === GUZIKI W HEADERZE === */
+.guziki {
+    justify-content: center;
+    align-items: center;
+}
+
+
+.guziki button {
+	background: transparent;
+    color: #fff;
+    border: 2px solid #ffffffb1;
+	width: 10em;
+    border-radius: 20px;
+    padding: 0.6em 1.6em;
+    font-size: 1.08em;
+    font-family: 'Montserrat', Arial, sans-serif;
+    cursor: pointer;
+    transition:
+	background 0.22s cubic-bezier(.22,1,.36,1),
+	color 0.22s cubic-bezier(.22,1,.36,1),
+	box-shadow 0.24s cubic-bezier(.22,1,.36,1),
+	border-color 0.22s cubic-bezier(.22,1,.36,1),
+	font-size 0.22s cubic-bezier(.22,1,.36,1);
+    box-shadow: 0 2px 12px rgba(52, 216, 71, 0.06);
+}
+/* === SOCIALE === */
+
+.sociale {
+    color: #ffffff;
+	display: flex;
+	justify-content: center;
+	align-items: stretch;
+	gap: 10em;
+	margin: 5em auto 2em auto;
+	margin-bottom: 2em;
+	background: none;
+	padding: 0;
+	max-width: 1100px;
+	
+}
+.sociale section {
+	transition: transform 0.3s cubic-bezier(.22,1,.36,1), filter 0.2s cubic-bezier(.22,1,.36,1);
+}
+
+.sociale img {
+
+    transition: transform 0.2s cubic-bezier(.22,1,.36,1), filter 0.2s cubic-bezier(.22,1,.36,1);
+    filter: drop-shadow(0 0 8px #000000aa);
+}
+
+.sociale section:hover,
+.sociale section:focus {
+    color: #fff;
+    border-color: #fff;
+    size: 1.2em;
+    outline: none;
+	transform: scale(1.16);
+}
+
+.kontakt-mail,
+.kontakt-discord {
+    color: #fff !important;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.2s;
+    word-break: break-all;
+}
+.kontakt-mail:hover,
+.kontakt-discord:hover {
+    color: #bb87fd;
+    text-decoration: underline;
+}
+.guziki button:hover,
+.guziki button:focus {
+    background: rgba(255, 0, 221, 0.22);
+    color: #fff;
+    border-color: #fff;
+    box-shadow: 0 4px 18px 0 #34d84755;
+    font-size: 1.2em;
+    outline: none;
+}
+
+/* === ANIMOWANY OBRAZEK W PRAWYM GÓRNYM ROGU === */
+.obrazek-animacja {
+    position: fixed;
+    top: -100px;      /* przesuwa obrazek w GÓRĘ o 24px, czyli wyżej niż header */
+    right: -100px;
+    width: 600px;
+    height: 600px;
+    z-index: 12;
+    pointer-events: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+
+.obrazek-lapka.spada {
+    opacity: 0;
+}
+.obrazek-lapka {
+    position: absolute;      /* pozycja absolutna względem headera */
+    top: 50%;                /* środek headera w pionie, możesz dać np. 32px, jeśli linia jest niżej */
+    right: 20px;             /* przy prawej krawędzi headera */
+    transform: translate(-150%, -40%);  /* wyśrodkowanie obrazka w pionie */
+    width: 60px;
+    height: 60px;
+    z-index: 80;             /* wyżej niż tło, niżej niż inne rzeczy, jeśli trzeba */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: auto;
+	transition: opacity 1.2s cubic-bezier(.33,1.1,.68,1.1);
+}
+
+.obrazek-lapka img {
+    width: 100%;
+    height: auto;
+    display: block;
+	
+	animation: bujaj-lapka 2.3s ease-in-out infinite alternate;
+}
+
+.obrazek-animacja img {
+    display: block;
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+	transform-origin: 50% 0%;
+	animation: bujaj-obrazek 2.3s ease-in-out infinite alternate;
+}
+@keyframes bujaj-obrazek {
+    0%   { transform: rotate(-15deg);}
+    100% { transform: rotate(15deg);}
+}
+
+@keyframes bujaj-lapka {
+    0%   { transform: rotate(-40deg);}
+    100% { transform: rotate(-50deg);}
+}
+
+/* Ukryty modal */
+.kontakt-modal {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.573);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.28s cubic-bezier(.22,1,.36,1);
+}
+
+/* Widoczny modal (dodawany przez JS) */
+.kontakt-modal.aktywny {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Kafelek w środku */
+.kontakt-tresc {
+    background: rgba(99, 25, 210, 0.78);
+    color: #fff;
+    border-radius: 18px;
+    box-shadow: 0 8px 40px rgba(99, 25, 210, 0.028);
+    padding: 2.5em 2em;
+    min-width: 600px;
+    max-width: 800px;
+    animation: modal-slide-in 0.37s cubic-bezier(.22,1,.36,1);
+    transform: translateY(0);
+}
+@keyframes modal-slide-in {
+    from { transform: translateY(60px) scale(0.96); opacity: 0;}
+    to { transform: translateY(0) scale(1); opacity: 1;}
+}
+
+/* Przycisk zamknięcia */
+.zamknij-kontakt {
+    margin-top: 2em;
+    background: #fff;
+    color: #4314c9;
+    border: none;
+    padding: 0.6em 1.8em;
+    border-radius: 14px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background 0.19s, color 0.19s;
+}
+.zamknij-kontakt:hover {
+    background: #4314c9;
+    color: #fff;
+}
+
+
+
+/* === TYTUŁ NA GÓRZE STRONY === */
+.banner-title {
+    text-align: center;
+    font-size: 2.4em;
+    color: #fff;
+    margin-bottom: 1.2em;
+    margin-top: 1.2em;
+    text-shadow:
+        0 4px 16px rgba(0,0,0,0.8),
+        0 1px 1px rgba(50,50,50,0.3);
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+
+/* === BLOKI DWUKOLUMNOWE (YouTube i Discord) === */
+.dwie-sekcje {
+    display: flex;
+    gap: 2em;
+    max-width: 1270px;
+    margin: 3em auto;
+}
+.blok-glowny {
+    flex: 2 1 0;
+    background: rgba(28,28,28,0.36);
+    backdrop-filter: blur(20px);
+    padding: 2em 2em 1em 2em;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(44,47,51,0.13);
+    min-width: 320px;
+}
+.blok-boczny {
+    flex: 1 1 0;
+    background: rgba(28,28,28,0.34);
+    backdrop-filter: blur(20px);
+    padding: 2em;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(44,47,51,0.11);
+    min-width: 220px;
+    max-width: 360px;
+}
+
+/* === STYL PRZYCISKU YT SUB === */
+.sub-btn {
+	width: 100%;
+    background: rgb(216, 23, 23);
+    color: #fff;
+    border: 0px solid #fff6;
+    border-radius: 20px;
+    padding: 1em 1em;
+    font-size: 1.5em;
+    font-family: 'Montserrat', Arial, sans-serif;
+    cursor: pointer;
+    margin-top: 3em;
+    transition:
+        background 0.22s cubic-bezier(.22,1,.36,1),
+        color 0.22s cubic-bezier(.22,1,.36,1),
+        box-shadow 0.24s cubic-bezier(.22,1,.36,1),
+        border-color 0.22s cubic-bezier(.22,1,.36,1);
+    box-shadow: 0 2px 12px rgba(52, 216, 71, 0.06);
+}
+.sub-btn:hover, .sub-btn:focus {
+    background: rgb(230, 68, 68);
+    color: #fff;
+    border-color: #fff;
+    box-shadow: 0 4px 18px 0 rgb(216, 23, 23);
+    outline: none;
+}
+
+.discord-btn {
+	width: 100%;
+    background: #7289DA;
+    color: #fff;
+    border: 0px solid #fff6;
+    border-radius: 20px;
+    padding: 1em 1em;
+    font-size: 1.5em;
+    font-family: 'Montserrat', Arial, sans-serif;
+    cursor: pointer;
+    margin-top: 1em;
+    transition:
+        background 0.22s cubic-bezier(.22,1,.36,1),
+        color 0.22s cubic-bezier(.22,1,.36,1),
+        box-shadow 0.24s cubic-bezier(.22,1,.36,1),
+        border-color 0.22s cubic-bezier(.22,1,.36,1);
+    box-shadow: 0 2px 12px rgba(52, 216, 71, 0.06);
+}
+.discord-btn:hover, .discord-btn:focus {
+    background: #a7baff;
+    color: #fff;
+    box-shadow: 0 4px 18px 0 #7289DA;
+    outline: none;
+}
+
+/* === STYL IFRAME YOUTUBE/DISCORD === */
+iframe {
+    border-radius: 12px;
+    box-shadow: 0 2px 24px rgba(0,0,0,0.19);
+    border: none;
+    max-width: 100%;
+}
+
+/* === STOPKA === */
+footer {
+    text-align: center;
+    background: #23272a;
+    color: #888;
+    border-top: 2px solid rgba(99, 25, 210, 0.78);
+    font-size: 0.95em;
+    padding: 1em 0;
+    margin-top: 0em;
+}
+
+/* === RESPONSYWNOŚĆ === */
+@media (max-width: 1000px) {
+    .dwie-sekcje {
+        flex-direction: column;
+        gap: 1em;
+    }
+    .obrazek-animacja {
+        display: none; /* ukryj dekorację na małym ekranie */
+    }
+	.obrazek-lapka{
+		display: none;
+	}
+}
+@media (max-width: 700px) {
+    .banner-title {
+        font-size: 1.4em;
+    }
+    .blok-glowny,
+    .blok-boczny,
+    .tekst-opis {
+        padding: 1em;
+    }
+    header {
+        flex-direction: column;
+        padding: 0.6em;
+    }
+    .guziki {
+        margin-top: 0.8em;
+    }
+}
